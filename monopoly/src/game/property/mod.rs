@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+#[derive(Debug)]
 pub struct PropertSet {
     colour: String,
     properties: HashMap<String, Property>
@@ -15,6 +16,7 @@ impl PropertSet {
     }
 }
 
+#[derive(Debug)]
 pub struct Property {
     name: String,
     base_rent: f64,
@@ -140,5 +142,5 @@ mod tests {
         property.unmortgage();
         assert!(!property.is_mortgaged());
     }
-    
+
 }

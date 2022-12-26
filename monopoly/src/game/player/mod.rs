@@ -1,5 +1,6 @@
 use uuid::Uuid;
 
+#[derive(Debug)]
 pub struct Player {
     id: Uuid,
     name: String,
