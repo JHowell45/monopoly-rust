@@ -1,4 +1,7 @@
+use uuid::Uuid;
+
 pub struct Player {
+    id: Uuid,
     name: String,
     money: f64,
     bankrupt: bool
@@ -6,7 +9,7 @@ pub struct Player {
 
 impl Player {
     pub fn new(name: &str) -> Self {
-        Self { name: String::from(name), money: 1500.00, bankrupt: false }
+        Self { id: Uuid::new_v4(), name: String::from(name), money: 1500.00, bankrupt: false }
     }
 
     pub fn get_name(&self) -> &String {
