@@ -9,11 +9,12 @@ use player::Player;
 pub struct Game {
     players: Vec<Player>,
     player_movements: HashMap<Uuid, u32>,
+    current_round: u64,
 }
 
 impl Game {
     pub fn new() -> Self {
-        Self { players: Vec::new(), player_movements: HashMap::new() }
+        Self { players: Vec::new(), player_movements: HashMap::new(), current_round: 0 }
     }
 
     pub fn add_player(&mut self, name: &str) {
