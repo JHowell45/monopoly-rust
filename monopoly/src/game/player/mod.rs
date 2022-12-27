@@ -1,7 +1,3 @@
-#[path = "../property/mod.rs"] mod property;
-
-use property::collection::PropertyCollection;
-
 use uuid::Uuid;
 use rand::Rng;
 
@@ -11,12 +7,11 @@ pub struct Player {
     name: String,
     money: f64,
     bankrupt: bool,
-    properties: PropertyCollection,
 }
 
 impl Player {
     pub fn new(name: &str) -> Self {
-        Self { id: Uuid::new_v4(), name: String::from(name), money: 1500.00, bankrupt: false, properties: PropertyCollection::new() }
+        Self { id: Uuid::new_v4(), name: String::from(name), money: 1500.00, bankrupt: false }
     }
 
     pub fn get_id(&self) -> Uuid {
