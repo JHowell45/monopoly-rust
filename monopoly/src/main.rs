@@ -9,6 +9,9 @@ fn run_game() {
     game.add_player("Richard");
     game.add_player("Amy");
     println!("{:#?}", game);
+    game.next_round();
+    println!("{:#?}", game);
+
     // let run_game: bool = true;
     // while run_game {
 
