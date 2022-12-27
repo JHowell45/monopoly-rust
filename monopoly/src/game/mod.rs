@@ -1,8 +1,11 @@
 pub mod player;
+pub mod board;
+pub mod property;
 
 use std::collections::HashMap;
 use uuid::Uuid;
 use player::Player;
+use board::{Board, BoardTile};
 
 #[derive(Debug)]
 pub struct Game {
