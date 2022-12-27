@@ -9,14 +9,13 @@ pub struct Property {
     house_rent: HashMap<u8, f64>,
     houses: u8,
     hotel: bool,
-    mortgage_value: f64,
     mortgaged: bool,
     house_price: f64,
     hotel_price: f64
 }
 
 impl Property {
-    pub fn new(name: &str, colour: &str, price: f64, base_rent: f64, house_rent_map: HashMap<u8, f64>, mortgage_value: f64, house_price: f64, hotel_price: f64) -> Self {
+    pub fn new(name: &str, colour: &str, price: f64, base_rent: f64, house_rent_map: HashMap<u8, f64>, house_price: f64, hotel_price: f64) -> Self {
         Self {
             name: String::from(name),
             colour: String::from(colour),
@@ -25,7 +24,6 @@ impl Property {
             house_rent: house_rent_map,
             houses: 0,
             hotel: false,
-            mortgage_value: mortgage_value,
             mortgaged: false,
             house_price: house_price,
             hotel_price: hotel_price,
@@ -60,7 +58,7 @@ impl Property {
         if !self.mortgaged {
             self.mortgaged = true;
         }
-        return self.mortgage_value;
+        return self.price / 2.0;
     }
 
     pub fn unmortgage(&mut self) {
@@ -84,7 +82,7 @@ mod tests {
 
     #[test]
     fn property_add_house() {
-        let mut property = Property::new("test", "Brown", 100.0,  0.0, HashMap::from([(1, 2.0), (2, 2.0), (3, 3.0), (4, 4.0), (5, 5.0)]), 50.0, 50.0, 50.0);
+        let mut property = Property::new("test", "Brown", 100.0,  0.0, HashMap::from([(1, 2.0), (2, 2.0), (3, 3.0), (4, 4.0), (5, 5.0)]), 50.0, 50.0);
         assert_eq!(0, property.get_house_count());
         assert_eq!(false, property.has_hotel());
         
@@ -115,7 +113,7 @@ mod tests {
 
     #[test]
     fn test_mortgage() {
-        let mut property = Property::new("test", "Brown", 100.0, 0.0, HashMap::from([(1, 2.0), (2, 2.0), (3, 3.0), (4, 4.0), (5, 5.0)]), 50.0, 50.0, 50.0);
+        let mut property = Property::new("test", "Brown", 100.0, 0.0, HashMap::from([(1, 2.0), (2, 2.0), (3, 3.0), (4, 4.0), (5, 5.0)]), 50.0, 50.0);
 
         assert_eq!(false, property.is_mortgaged());
 
