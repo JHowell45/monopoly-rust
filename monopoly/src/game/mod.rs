@@ -1,5 +1,4 @@
 pub mod player;
-pub mod property;
 
 use std::collections::HashMap;
 use uuid::Uuid;
